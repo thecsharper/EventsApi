@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>f15b1544-3166-4f6c-bc31-b2d9479258f9</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>.</DockerfileContext>
+	<DockerfileFile>..\Dockerfile</DockerfileFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Http.Polly" Version="5.0.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.14" />
+    <PackageReference Include="Polly.Extensions.Http" Version="3.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EventsApi.CommandHandlers\EventsApi.CommandHandlers.csproj" />
+    <ProjectReference Include="..\EventsApi.Commands\EventsApi.Commands.csproj" />
+    <ProjectReference Include="..\EventsApi.Events\EventsApi.Events.csproj" />
+    <ProjectReference Include="..\EventsApi.Messages\EventsApi.Messages.csproj" />
+    <ProjectReference Include="..\EventsApi.Services\EventsApi.Services.csproj" />
+  </ItemGroup>
+
+</Project>
