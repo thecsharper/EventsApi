@@ -14,7 +14,7 @@ namespace EventsApi.CommandHandlers
         private readonly IThirdPartyService _thirdPartyService;
         private readonly ISmsRequestService _smsRequestService;
 
-        public SmsSendCommandHandler(ILogger logger, IThirdPartyService thirdPartyService, ISmsRequestService smsRequestService)
+        public SmsSendCommandHandler(ILogger<SmsSendCommandHandler> logger, IThirdPartyService thirdPartyService, ISmsRequestService smsRequestService)
         {
             _logger = logger;
             _thirdPartyService = thirdPartyService;

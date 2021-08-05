@@ -15,13 +15,13 @@ namespace EventsApi.UnitTests
 {
     public class SmsSendCommandHandlerTests
     {
-        private readonly Mock<ILogger> _logger;
+        private readonly Mock<ILogger<SmsSendCommandHandler>> _logger;
         private readonly Mock<IThirdPartyService> _thirdPartyService;
         private readonly Mock<ISmsRequestService> _smsRequestService;
 
         public SmsSendCommandHandlerTests()
         {
-            _logger = new Mock<ILogger>();
+            _logger = new Mock<ILogger<SmsSendCommandHandler>>();
             _thirdPartyService = new Mock<IThirdPartyService>();
             _smsRequestService = new Mock<ISmsRequestService>();
         }
