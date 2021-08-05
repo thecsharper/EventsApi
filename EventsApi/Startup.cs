@@ -35,15 +35,12 @@ namespace EventsApi
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "EventsApi", Version = "v1" });
             });
             
-            var serviceProvider = services.BuildServiceProvider();
-            var logger = serviceProvider.GetService<ILogger<SmsSendCommandHandler>>();
-            services.AddSingleton(typeof(ILogger), logger);
-
-            RegisterEventBus(services);
-
+            services.AddSingleton<ILogger>(p => p.GetRequiredService<ILogger<ISmsSendCommandHandler>>());
             services.AddSingleton<ISmsRequestService, SmsRequestService>();
             services.AddTransient<IThirdPartyService, ThirdPartyService>();
             services.AddTransient<ISmsSendCommandHandler, SmsSendCommandHandler>();
+
+            RegisterEventBus(services);
 
             services.AddHttpClient("ThirdParty", c =>
             {
