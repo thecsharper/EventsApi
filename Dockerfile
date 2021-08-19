@@ -16,8 +16,6 @@ COPY EventsApi.Events/*.csproj ./EventsApi.Events/
 COPY EventsApi.Commands/*.csproj ./EventsApi.Commands/
 COPY EventsApi.Messages/*.csproj ./EventsApi.Messages/
 COPY EventsApi.Services/*.csproj ./EventsApi.Services/
-COPY EventsApi.Services/*.csproj ./EventsApi.Services/
-COPY EventsApi.Services/*.csproj ./EventsApi.Services/
 COPY EventsApi.AcceptanceTests/*.csproj ./EventsApi.AcceptanceTests/
 COPY EventsApi.UnitTests/*.csproj ./EventsApi.UnitTests/
 
