@@ -72,13 +72,13 @@ namespace EventsApi
             ConfigureEventBus(app);
         }
 
-        private void ConfigureEventBus(IApplicationBuilder app)
+        private static void ConfigureEventBus(IApplicationBuilder app)
         {
             var eventBus = app.ApplicationServices.GetRequiredService<IEventBus>();
             eventBus.Subscribe<SmsSentEvent, IIntegrationEventHandler<SmsSentEvent>>();
         }
 
-        private void RegisterEventBus(IServiceCollection services)
+        private static void RegisterEventBus(IServiceCollection services)
         {
             services.AddSingleton<IEventBus, EventBus>(sp =>
             {

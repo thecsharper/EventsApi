@@ -62,12 +62,12 @@ namespace EventsApi.Controllers
 
         private void QueueMessage(SmsSentEvent smsSentEvent, Guid messageId)
         {
-            _ = Policy.Handle<AggregateException>()
-                                .WaitAndRetryAsync(5, retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)),
-                                (exception, timeSpan, context) =>
-                                {
-                                    _logger.LogWarning("Message '{MessageId}' not published: {Exception}", messageId, exception);
-                                }).ExecuteAsync(() => _eventBus.Publish(smsSentEvent));
+            _ = Policy.Handle<AggregateException>().WaitAndRetryAsync(
+                       5, retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)),(exception, timeSpan, context) => 
+                       {
+                           _logger.LogWarning("Message '{MessageId}' not published: {Exception}", messageId, exception);
+                       })
+                       .ExecuteAsync(() => _eventBus.Publish(smsSentEvent));
 
             _logger.LogInformation("Message '{MessageId}' published", messageId);
         }
