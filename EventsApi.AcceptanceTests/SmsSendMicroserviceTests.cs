@@ -39,7 +39,7 @@ namespace EventsApi.AcceptanceTests
             var response = await client.PostAsync(url, httpContent);
 
             response.EnsureSuccessStatusCode();
-            response.StatusCode.Should().Be(201);
+            response.StatusCode.Should().Be(System.Net.HttpStatusCode.Created);
             response.Content.Headers.ContentType.ToString().Should().Be("application/json; charset=utf-8");
         }
 
@@ -60,7 +60,7 @@ namespace EventsApi.AcceptanceTests
 
             var response = await client.PostAsync(url, httpContent);
 
-            response.StatusCode.Should().Be(400);
+            response.StatusCode.Should().Be(System.Net.HttpStatusCode.BadRequest);
             response.Content.Headers.ContentType.ToString().Should().Be("application/problem+json; charset=utf-8");
         }
     }
