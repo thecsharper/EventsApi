@@ -7,8 +7,10 @@ namespace EventsApi.Models
     (
          [Required]
          Guid MessageId,
+         
          [Required]
          string PhoneNumber,
+         
          [Required]
          string Message
     );
