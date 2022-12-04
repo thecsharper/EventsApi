@@ -7,7 +7,7 @@ The application can be built in Debug or Release mode and run directly from Visu
 Acceptance and unit tests can be run directly from Visual Studio using the built-in test runner. Select the test menu and the 'run all tests' menu option.
 
 # Testing with Swagger
-A web browser will be presented displaying a swagger API documentation page. The application accepts a JSON object with the following structure:
+A web browser will be opened displaying a Swagger API documentation page. The application accepts a JSON object with the following structure:
 
 `{
   "messageId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
