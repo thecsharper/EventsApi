@@ -48,7 +48,7 @@ namespace EventsApi.Controllers
 
             if (!smsSentResult)
             {
-                _logger.LogWarning("Message '{MessageId}' not sent to third party service.", smsMessage.MessageId);
+                _logger.LogWarning("Message '{MessageId}' not sent to third-party service.", smsMessage.MessageId);
 
                 return NoContent();
             }
